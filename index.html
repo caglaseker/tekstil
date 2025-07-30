@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tekstil - Geleceki Dokuyoruz</title>
+    <meta name="description" content="Modern tekstil çözümleri ile geleceği dokuyoruz. Sürdürülebilir üretim, kaliteli kumaşlar ve yenilikçi tasarımlar.">
+    
+    <!-- Font imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- CSS Styles -->
+    <style>
+        :root {
+            --primary-color: #2C5F4A;
+            --secondary-color: #8B5A3C;
+            --accent-color: #E6B17A;
+            --text-dark: #1a1a1a;
+            --text-light: #666;
+            --bg-light: #F8F9FA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="fabric" patternUnits="userSpaceOnUse" width="20" height="20"><rect width="20" height="20" fill="none"/><path d="M0 10h20M10 0v20" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23fabric)"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--text-dark);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn-primary:hover, .btn-secondary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary-color);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .about-text p {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 5rem 0;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--accent-color), var(--primary-color));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="weave" patternUnits="userSpaceOnUse" width="10" height="10"><rect width="10" height="10" fill="none"/><rect x="0" y="0" width="5" height="5" fill="rgba(255,255,255,0.2)"/><rect x="5" y="5" width="5" height="5" fill="rgba(255,255,255,0.2)"/></pattern></defs><rect width="100" height="100" fill="url(%23weave)"/></svg>') repeat;
+        }
+
+        .product-content {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .product-desc {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Sustainability Section */
+        .sustainability {
+            background: var(--primary-color);
+            color: white;
+            padding: 5rem 0;
+        }
+
+        .sustainability-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .sustainability h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .sustainability-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background: var(--bg-light);
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            font-family: inherit;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: var(--primary-color);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background: var(--secondary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--text-dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #888;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .about-content,
+            .sustainability-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .sustainability-features {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <style>
+      #loading {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        flex-wrap: wrap;
+      }
+
+      #loading img {
+        width: 58px;
+        height: 58px;
+      }
+    </style>
+    <script>
+      window.__ENV = {"RELEASE_VERSION":"da4277c3","BUILD_COMMIT_SHA":"da4277c3992000f3a65a63cac0549c959f97c66d","TARGET":"online","HOME_HOST":"www.dora.run","RUN_HOST":"dora.run","PREVIEW_HOST":"preview.dora.run","SWIMLANE_HOST":"","API_HOST":"api-us.dora.run","NEO_API_HOST":"neo-api.dora.run","CDN_NEO_API_HOST":"cdn-neo-api.dora.run","STATIC_ASSETS_HOST":"cdn-static-e.dora.run","USER_ASSETS_HOST":"cdn-design-e.dora.run","CDN_IMGS_HOST":"cdn-imgs.dora.run","CDN_PUBLIC_DOC_HOST":"cdn-public-document-dora-e.dora.run","REALTIME_HOST":"realtime-next-us.dora.run"};
+      window.__ASSET_PREFIX = 'https://cdn-static-e.dora.run/dora_runner_web';
+      window.__ASSET_MANIFEST = {"main.dart.js":"main.dart.ee4468a1.js","threed_renderer/build/editor.js.LICENSE.txt":"threed_renderer.e578ddea/build/editor.js.LICENSE.txt","threed_renderer/build/glbCompress.js":"threed_renderer.e578ddea/build/glbCompress.js","threed_renderer/build/runner.js":"threed_renderer.e578ddea/build/runner.js","threed_renderer/build/editor.js":"threed_renderer.e578ddea/build/editor.js","threed_renderer/build/chunk.bundle.js":"threed_renderer.e578ddea/build/chunk.bundle.js","threed_renderer/build/runner.js.LICENSE.txt":"threed_renderer.e578ddea/build/runner.js.LICENSE.txt","public/error_pages/internal_error.html":"public/error_pages/internal_error.5610c2b8.html","public/error_pages/not_found.html":"public/error_pages/not_found.32a93b53.html","public/previewer.css":"public/previewer.d2c4671b.css","public/loading.gif":"public/loading.6330c237.gif","public/made_in_dora/tag_icon_white.webp":"public/made_in_dora/tag_icon_white.91514bb1.webp","public/made_in_dora/ai_tag_icon_white.png":"public/made_in_dora/ai_tag_icon_white.1717c340.png","public/made_in_dora/tag_icon.png":"public/made_in_dora/tag_icon.9712852f.png","public/made_in_dora/ai_tag_icon.png":"public/made_in_dora/ai_tag_icon.74d52789.png","public/made_in_dora/ai_tag_bg.png":"public/made_in_dora/ai_tag_bg.1ad890be.png","public/previewer.js":"public/previewer.3d926f51.js"};
+    </script>
+    <script>
+      function setCookie(name, value, days) {
+  var expires = '';
+  if (days) {
+    var date = new Date();
+    date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+    expires = '; expires=' + date.toUTCString();
+  }
+  let domain = '';
+  if (window.location.hostname.includes('test.dora.run')) {
+    domain = '; domain=.test.dora.run';
+  } else if (window.location.hostname.includes('prerelease.dora.run')) {
+    domain = '; domain=.prerelease.dora.run';
+  } else if (window.location.hostname.includes('dora.run')) {
+    domain = '; domain=.dora.run';
+  }
+  document.cookie =
+    name + '=' + encodeURIComponent(value) + expires + '; path=/' + domain;
+}
+
+const utmUrlParamKeys = [
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_content',
+  'utm_term',
+];
+
+const doraUrlParamKeys = ['coupon'];
+
+try {
+  var urlParams = new URLSearchParams(window.location.search);
+  let pscd = urlParams.get('pscd');
+  let ps_partner_key = urlParams.get('ps_partner_key');
+  let ps_xid = urlParams.get('ps_xid');
+  let gsxid = urlParams.get('gsxid');
+  let gspk = urlParams.get('gspk');
+  if (ps_partner_key && ps_xid && gsxid && gspk) {
+    setCookie('pscd', pscd, 30);
+    setCookie('ps_partner_key', ps_partner_key, 30);
+    setCookie('ps_xid', ps_xid, 30);
+    setCookie('gsxid', gsxid, 30);
+    setCookie('growSumoPartnerKey', gspk, 30);
+    setCookie('ps_mode', 'trackingV2', 30);
+  }
+  for (const key of utmUrlParamKeys) {
+    if (urlParams.has(key)) {
+      setCookie(key, urlParams.get(key), 30);
+    }
+  }
+  for (const urlParamKey of doraUrlParamKeys) {
+    const key = `dora_${urlParamKey}`;
+    const value = urlParams.get(urlParamKey);
+    if (value) setCookie(key, value, 30);
+  }
+} catch (error) {}
+
+    </script>
+    
+    <script src="https://cdn-static-e.dora.run/dora_runner_web/threed_renderer.e578ddea/build/runner.js"></script>
+    
+    
+    
+    <script defer="" src="https://cdn-static-e.dora.run/dora_runner_web/main.dart.ee4468a1.js"></script>
+  <script>window.DORA_PROJECT_PREPARATION="{\"summary\":{\"fonts\":{\"PingFang SC-Regular\":[\"WZftOpbt6\",\"WP2PXJXDZ\"],\"Source Code Pro-Regular\":[\"Wt1kXBZhN\"],\"PingFang SC-SemiBold\":[\"WzP8hBAac\",\"W8ERutweY\",\"WsXK711gC\"],\"PingFang SC Lite-Light\":[\"WpdYei8IR\",\"WIL93UMkm\"],\"Poppins-SemiBold\":[\"WqqG7ZKpp\",\"WEvM7eOOg\"],\"PingFang SC Lite-SemiBold\":[\"WOXRfMu6m\",\"WC4GY0pym\",\"Wsc2jGSxR\",\"Wknkr9x8I\",\"WaoMoa6x1\",\"Wp1DYQq1Q\"]},\"isLeaf\":true,\"last_modified\":1672029903143},\"releaseVersion\":null,\"domain\":\"apple-iphone13-pro.dora.run\",\"name\":\"iPhone13 Pro\",\"id\":\"731956\",\"api\":{\"/action\":{\"version\":\"a187263f-73aa-4678-a239-971b151fbab2\"},\"/project/get\":{\"version\":\"e5af2362-57a2-4e7e-a788-ad261005c6aa\"},\"/meta\":{\"version\":\"51cbf70e-a96e-4095-89ce-5ee72e752eec\"}}}";</script><script>window.doraAppTitle="iPhone 13";</script><!-- Open Graph / Facebook -->
+            <meta property="og:type" content="website">
+            <meta property="og:title" content="iPhone 13">
+            <meta property="og:description" content="My description">
+            <meta property="og:image" content="https://cdn-static-e.dora.run/public/image_placeholder.png">
+            <!-- Twitter -->
+            <meta name="twitter:card" content="summary_large_image">
+            <meta name="twitter:title" content="iPhone 13">
+            <meta name="twitter:description" content="My description">
+            <meta name="twitter:image" content="https://cdn-static-e.dora.run/public/image_placeholder.png">
+            </head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <div class="logo">Tekstil</div>
+            <ul class="nav-links">
+                <li><a href="#anasayfa">Ana Sayfa</a></li>
+                <li><a href="#hakkimizda">Hakkımızda</a></li>
+                <li><a href="#urunler">Ürünler</a></li>
+                <li><a href="#surdurulebilirlik">Sürdürülebilirlik</a></li>
+                <li><a href="#iletisim">İletişim</a></li>
+            </ul>
+            <a href="#iletisim" class="cta-btn">Teklif Al</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="anasayfa">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Geleceki Dokuyoruz</h1>
+                <p>50 yıllık deneyimimizle modern tekstil çözümleri sunuyoruz. Sürdürülebilir üretim, kaliteli kumaşlar ve yenilikçi tasarımlarla sektörde öncü konumdayız.</p>
+                <div class="hero-buttons">
+                    <a href="#urunler" class="btn-primary">Ürünlerimizi Keşfedin</a>
+                    <a href="#hakkimizda" class="btn-secondary">Hikayemizi Öğrenin</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="hakkimizda">
+        <div class="container">
+            <h2 class="section-title fade-in">Hakkımızda</h2>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h3>Türkiye'nin Lider Tekstil Firması</h3>
+                    <p>1973 yılından bu yana tekstil sektöründe faaliyet göstermekteyiz. Kaliteli üretim anlayışımız ve müşteri memnuniyeti odaklı yaklaşımımızla 50'den fazla ülkeye ihracat gerçekleştiriyoruz.</p>
+                    <p>Modern teknolojimiz ve deneyimli ekibimizle her türlü kumaş ihtiyacınıza çözüm sunuyoruz. Çevre dostu üretim süreçlerimizle geleceğe değer katıyoruz.</p>
+                </div>
+                <div class="stats fade-in">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">İhracat Ülkesi</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5M+</span>
+                        <span class="stat-label">Metre/Yıl Kapasite</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label">Mutlu Müşteri</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="urunler">
+        <div class="container">
+            <h2 class="section-title fade-in">Ürün Koleksiyonlarımız</h2>
+            <div class="product-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image"></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Premium Pamuklu Kumaşlar</h3>
+                        <p class="product-desc">%100 organik pamuktan üretilen, yumuşak ve dayanıklı kumaşlarımız moda sektörüne yönelik premium çözümler sunar.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image"></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Teknik Kumaşlar</h3>
+                        <p class="product-desc">Su geçirmez, nefes alabilir ve antibakteriyel özellikli teknik kumaşlarımız ile spor giyim ve açık hava ürünlerine çözüm.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image"></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Jakar Koleksiyonu</h3>
+                        <p class="product-desc">Geleneksel Türk motiflerinden modern tasarımlara kadar geniş jakar kumaş koleksiyonumuz ile ev tekstili sektörüne hizmet.</p>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in">
+                    <div class="product-image"></div>
+                    <div class="product-content">
+                        <h3 class="product-title">Eco-Friendly Serisi</h3>
+                        <p class="product-desc">Geri dönüştürülmüş liflerde üretilen çevre dostu kumaşlarımız ile sürdürülebilir moda trendlerine öncülük ediyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sustainability Section -->
+    <section class="sustainability" id="surdurulebilirlik">
+        <div class="container">
+            <div class="sustainability-content">
+                <div class="fade-in">
+                    <h2>Sürdürülebilir Gelecek</h2>
+                    <p>Çevre bilincimiz üretim süreçlerimizin merkezinde yer alır. Yenilenebilir enerji kaynakları, su geri dönüşümü ve kimyasal-free boyama teknikleriyle doğaya saygılı üretim gerçekleştiriyoruz.</p>
+                    
+                    <div class="sustainability-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">🌱</div>
+                            <div>
+                                <h4>Organik Hammadde</h4>
+                                <p>%100 organik pamuk kullanımı</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">💧</div>
+                            <div>
+                                <h4>Su Tasarrufu</h4>
+                                <p>%60 daha az su tüketimi</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">⚡</div>
+                            <div>
+                                <h4>Temiz Enerji</h4>
+                                <p>Güneş enerjisi ile üretim</p>
+                            </div>
+                        </div>
+                        <div class="feature-item">
+                            <div class="feature-icon">♻️</div>
+                            <div>
+                                <h4>Geri Dönüşüm</h4>
+                                <p>Sıfır atık hedefi</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRTZCMTdBIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iODAiIGZpbGw9IiNGRkZGRkYiIG9wYWNpdHk9IjAuMyIvPgo8cGF0aCBkPSJNMTUwIDEwMEwyNTAgMTAwTDIwMCAyMDBMMTUwIDEwMFoiIGZpbGw9IiMyQzVGNEEiIG9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4K" alt="Sürdürülebilir Üretim" style="width: 100%; border-radius: 15px;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="iletisim">
+        <div class="container">
+            <h2 class="section-title fade-in">İletişime Geçin</h2>
+            <form class="contact-form fade-in">
+                <div class="form-group">
+                    <label for="name">Ad Soyad</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">E-posta</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="company">Firma</label>
+                    <input type="text" id="company" name="company">
+                </div>
+                <div class="form-group">
+                    <label for="message">Mesaj</label>
+                    <textarea id="message" name="message" rows="5" placeholder="Kumaş ihtiyaçlarınızı ve proje detaylarınızı bizimle paylaşın..." required></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Teklif Talep Et</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tekstil</h3>
+                    <p>50 yıllık deneyimimizle kaliteli kumaş üretiminde Türkiye'nin lider firması. Sürdürülebilir üretim anlayışımızla geleceğe değer katıyoruz.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Hızlı Bağlantılar</h3>
+                    <ul style="list-style: none;">
+                        <li><a href="#hakkimizda">Hakkımızda</a></li>
+                        <li><a href="#urunler">Ürünler</a></li>
+                        <li><a href="#surdurulebilirlik">Sürdürülebilirlik</a></li>
+                        <li><a href="#iletisim">İletişim</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>İletişim Bilgileri</h3>
+                    <p>📍 Organize Sanayi Bölgesi, Bursa/Türkiye</p>
+                    <p>📞 +90 224 xxx xx xx</p>
+                    <p>✉️ info@tekstil.com.tr</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Sertifikalarımız</h3>
+                    <p>🏆 ISO 9001:2015</p>
+                    <p>🌿 OEKO-TEX Standard 100</p>
+                    <p>♻️ GRS Sertifikası</p>
+                    <p>🌱 GOTS Sertifikası</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Tekstil. Tüm hakları saklıdır. | Modern tekstil çözümleri ile geleceği dokuyoruz.</p>
+            </div>
+        </div>
+    </footer>
+
+        <!-- JavaScript for animations and interactions -->
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+
+        // Contact form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(this);
+            const name = formData.get('name');
+            const email = formData.get('email');
+            const company = formData.get('company');
+            const message = formData.get('message');
+            
+            // Simple validation
+            if (!name || !email || !message) {
+                alert('Lütfen tüm zorunlu alanları doldurun.');
+                return;
+            }
+            
+            // Simulate form submission
+            alert(`Sayın ${name}, mesajınız alındı! En kısa sürede size dönüş yapacağız.`);
+            this.reset();
+        });
+    </script>
+</body>
+</html>
